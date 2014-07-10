@@ -1,0 +1,3 @@
+name: TheGamingGrunts-t3
+main: com.tenjava.entries.TheGamingGrunts.t3.TenJava
+version: '${project.version}'
