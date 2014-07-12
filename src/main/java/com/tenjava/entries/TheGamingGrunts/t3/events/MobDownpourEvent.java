@@ -13,35 +13,34 @@ import org.bukkit.event.HandlerList;
 
 import com.tenjava.entries.TheGamingGrunts.t3.TenJava;
 import com.tenjava.entries.TheGamingGrunts.t3.enums.Entity;
-import com.tenjava.entries.TheGamingGrunts.t3.enums.MessageType;
 
 public class MobDownpourEvent extends Event implements Cancellable {
 
 	private boolean isCancelled;
 	private static HandlerList handlers = new HandlerList();
+	private int mobsToSpawn = TenJava.getInstance().getConfig().getInt("MobDownpourControl.MobsToSpawn");
 	private Random randomX = new Random();
 	private Random randomZ = new Random();
-	private int mobsToSpawn = TenJava.getInstance().getConfig().getInt("MobDownpourControl.MobsToSpawn");
 	private int distance = TenJava.getInstance().getConfig().getInt("MobDownpourControl.MaxSpawnDistance");
 	
 	/**
-	 * At random, flaming mobs will be spawned high in the air and will rain down upon everyone
+	 * At random, mobs will be spawned high in the air and will rain down upon everyone
 	 * 
 	 * @param world : The world in which the "downpour" will occur
 	 */
 	public MobDownpourEvent(){
-		if (isEnabled()){
-			for (World world : Bukkit.getWorlds()){
-				for (Player p : world.getPlayers()){
-					for (int i = 0; i < mobsToSpawn; i++){
-						String e = Entity.getRandomEntity().toString();
-						Location l = p.getLocation().add(randomX.nextInt(distance), 110, randomZ.nextInt(distance));
-						org.bukkit.entity.Entity en = world.spawnEntity(l, EntityType.valueOf(e));
-						en.setFireTicks(120);
-					}
-				}	
-			}
-			Bukkit.broadcastMessage(MessageType.DOWNPOUR.getMsg());
+		for (World world : Bukkit.getWorlds()){
+			for (Player p : world.getPlayers()){
+				for (int i = 0; i < mobsToSpawn; i++){
+					String e = Entity.getRandomEntity().toString();
+					Location l = new Location(world, p.getLocation().getX() + randomX.nextInt(distance), 
+							110, p.getLocation().getZ() + randomZ.nextInt(distance));
+					org.bukkit.entity.Entity en = world.spawnEntity(l, EntityType.valueOf(e));
+					en.setFireTicks(120);
+					
+					
+				}
+			}	
 		}
 	}
 	
