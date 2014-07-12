@@ -20,12 +20,12 @@ public class MobDownpourEvent extends Event implements Cancellable {
 	private boolean isCancelled;
 	private static HandlerList handlers = new HandlerList();
 	private int mobsToSpawn = TenJava.getInstance().getConfig().getInt("MobDownpourControl.MobsToSpawn");
+	private int distance = TenJava.getInstance().getConfig().getInt("MobDownpourControl.MaxSpawnDistance");
 	private Random randomX = new Random();
 	private Random randomZ = new Random();
-	private int distance = TenJava.getInstance().getConfig().getInt("MobDownpourControl.MaxSpawnDistance");
 	
 	/**
-	 * At random, mobs will be spawned high in the air and will rain down upon everyone
+	 * At random, flaming mobs will be spawned high in the air and will rain down upon everyone
 	 * 
 	 * @param world : The world in which the "downpour" will occur
 	 */
