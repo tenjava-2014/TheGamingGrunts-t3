@@ -26,7 +26,7 @@ public class MainCommand implements CommandExecutor {
 						Bukkit.getPluginManager().callEvent(new HailStormEvent());
 						break;
 					default:
-						sender.sendMessage(MessageType.CMD_INVALID.getMsg());
+						sender.sendMessage(MessageType.CMD_INVALID.getMsg() + " Try /mm <passenger | downpour | hailstorm>");
 						break;
 				}
 			}
