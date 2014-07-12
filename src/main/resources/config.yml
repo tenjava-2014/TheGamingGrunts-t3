@@ -1,0 +1,43 @@
+# Created by Daniel S. (TheGamingGrunts) for TenJava 2014
+
+# General config options
+General:
+  # Choose how often (in minutes) that a random event will be fired
+  RandomEventTime: 1
+
+# This plugin allows for Creepers to multiply when they are killed by a player, similar to Zombies.
+# You can control the options for this in the section below
+CreeperControl:
+  # Choose whether or not to enable this feature
+  Enabled: true
+  # The amount that spawn are chosen at random. Choose the maximum amount to spawn here.
+  MaxSpawnAmount: 5
+  # The distances that they spawn from players are chosen at random. Choose the maximum
+  # spawn distance (in blocks) here.
+  MaxSpawnDistance: 10
+
+
+# This plugin allows for random hailstorms to occur. When they happen, blocks of packed ice
+# fall rapidly to the ground. Configure this feature in the section below
+HailControl:
+  # Choose whether or not to enable this feature
+  Enabled: true
+  # The distances that the blocks fall from players are chosen at random. Choose the maximum distance here.
+  MaxSpawnDistance: 20
+  # Choose how many hail blocks spawn before the storm ends
+  HailCount: 500
+
+# This plugin allows for random downpours of randomly selected mobs. Configure this feature here.
+MobDownpourControl:
+  # Choose whether or not to enable this feature
+  Enabled: true
+  # Choose how many mobs will be spawned
+  MobsToSpawn: 10
+  # The distances the mobs will spawn from players are chosen at random. Choose the maximum distance here.
+  MaxSpawnDistance: 10
+
+# This plugin allows for randomly selecting passengers to put on player's heads. Configure this feature here.
+PassengerControl:
+  # Choose whether or not to enable this feature
+  Enabled: true
+
