@@ -18,20 +18,32 @@ About this Plugin
 -----
 
 This plugin features 4 different random events:
-1. When a Creeper is killed, there is a chance that more can spawn randomly around the player, similar to how zombies work
-2. Hailstorms! Out of nowhere, blocks of packed ice will start falling from the sky!
-3. Like entities riding on your head? Well, every so often a random mob will be set as your passenger!
-4. Like rain? Like mobs? Put both of them together and watch the magic unfold :)
+- When a Creeper is killed, there is a chance that more can spawn randomly around the player, similar to how zombies work
+
+
+- Hailstorms! Out of nowhere, blocks of packed ice will start falling from the sky!
+
+
+- Like entities riding on your head? Well, every so often a random mob will be set as your passenger!
+
+
+- Like rain? Like mobs? Put both of them together and watch the magic unfold :)
 
 There are also commands to trigger each of the events manually (except Creeper spawning):
 
-1. /mm <passenger | hailstorm | downpour>
+1. /mm 
 
 ---------------------------------------
 
 Screenshots
 -----
 
+
+![ten.java](http://i.imgur.com/Heer3DL.png)]
+
+![ten.java](http://i.imgur.com/JHTf1vu.png)]
+
+![ten.java](http://i.imgur.com/g9fEaBy.png)]
 
 ---------------------------------------
 
