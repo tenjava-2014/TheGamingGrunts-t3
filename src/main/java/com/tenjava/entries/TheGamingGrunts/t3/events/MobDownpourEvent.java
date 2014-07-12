@@ -13,6 +13,7 @@ import org.bukkit.event.HandlerList;
 
 import com.tenjava.entries.TheGamingGrunts.t3.TenJava;
 import com.tenjava.entries.TheGamingGrunts.t3.enums.Entity;
+import com.tenjava.entries.TheGamingGrunts.t3.enums.MessageType;
 
 public class MobDownpourEvent extends Event implements Cancellable {
 
@@ -29,18 +30,19 @@ public class MobDownpourEvent extends Event implements Cancellable {
 	 * @param world : The world in which the "downpour" will occur
 	 */
 	public MobDownpourEvent(){
-		for (World world : Bukkit.getWorlds()){
-			for (Player p : world.getPlayers()){
-				for (int i = 0; i < mobsToSpawn; i++){
-					String e = Entity.getRandomEntity().toString();
-					Location l = new Location(world, p.getLocation().getX() + randomX.nextInt(distance), 
-							110, p.getLocation().getZ() + randomZ.nextInt(distance));
-					org.bukkit.entity.Entity en = world.spawnEntity(l, EntityType.valueOf(e));
-					en.setFireTicks(120);
-					
-					
-				}
-			}	
+		if (isEnabled()){
+			for (World world : Bukkit.getWorlds()){
+				for (Player p : world.getPlayers()){
+					for (int i = 0; i < mobsToSpawn; i++){
+						String e = Entity.getRandomEntity().toString();
+						Location l = new Location(world, p.getLocation().getX() + randomX.nextInt(distance), 
+								110, p.getLocation().getZ() + randomZ.nextInt(distance));
+						org.bukkit.entity.Entity en = world.spawnEntity(l, EntityType.valueOf(e));
+						en.setFireTicks(120);
+					}
+				}	
+			}
+			Bukkit.broadcastMessage(MessageType.DOWNPOUR.getMsg());
 		}
 	}
 	
@@ -80,7 +82,7 @@ public class MobDownpourEvent extends Event implements Cancellable {
 	 * @return True if enabled, false if not
 	 */
 	public boolean isEnabled(){
-		return TenJava.getInstance().getConfig().getBoolean("MobDownpourContro.Enabled");
+		return TenJava.getInstance().getConfig().getBoolean("MobDownpourControl.Enabled");
 	}
 
 }
