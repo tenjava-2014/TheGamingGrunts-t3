@@ -41,7 +41,6 @@ public class MobDownpourEvent extends Event implements Cancellable {
 					}
 				}	
 			}
-			
 			Bukkit.broadcastMessage(MessageType.DOWNPOUR.getMsg());
 		}
 	}

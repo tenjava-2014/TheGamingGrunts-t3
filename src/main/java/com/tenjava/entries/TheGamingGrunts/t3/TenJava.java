@@ -1,9 +1,9 @@
 package com.tenjava.entries.TheGamingGrunts.t3;
 
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.tenjava.entries.TheGamingGrunts.t3.commands.MainCommand;
 import com.tenjava.entries.TheGamingGrunts.t3.events.EntityDeath;
 import com.tenjava.entries.TheGamingGrunts.t3.events.RandomEvent;
 
@@ -16,9 +16,8 @@ public class TenJava extends JavaPlugin {
 		
 		saveDefaultConfig();
 		
-		PluginManager pm = Bukkit.getPluginManager();
-		
-		pm.registerEvents(new EntityDeath(), TenJava.getInstance());
+		Bukkit.getPluginManager().registerEvents(new EntityDeath(), TenJava.getInstance());
+		getCommand("mm").setExecutor(new MainCommand());
 		
 		new RandomEvent().callRandomEvent(getConfig().getInt("General.RandomEventTime")); //Call random event every x minutes
 	}
